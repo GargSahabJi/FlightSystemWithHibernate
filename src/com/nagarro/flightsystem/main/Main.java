@@ -7,11 +7,11 @@
 * 
 * Author info: Arpit Garg
 *
-* Creation date: 23/Mar/2021
+* Creation date: 26/Mar/2021
 *
 * Last updated By: Arpit Garg
 *
-* Last updated Date: 24/Mar/2021
+* Last updated Date: 30/Mar/2021
 *
 * Description: Main Class
 */
@@ -42,7 +42,6 @@ public class Main {
     private static final String RE_ENTER_DEPARTURE_LOCATION = "Re-enter departure location";
     private static final String ENTER_DATE_IN_FORMATE_OF_DD_MM_YYYY = "Enter Date in formate of DD-MM-YYYY: ";
     private static final String ENTER_OUTPUT_PREFERENCE_1_FARE_2_FLIGHT_DURATION_ENTER_PREFERENCE_CHOICE_CODE = "Enter Output Preference :   1. Fare \t 2. Flight Duration \nEnter Preference Choice Code : ";
-    private static final String ENTER_CLASS = "Enter Class : ";
     private static final String ENTER_ARRIVAL_LOCATION = "Enter Arrival Location  : ";
     private static final String ENTER_DEPARTURE_LOCATION = "Enter Departure Location  : ";
     private static Scanner scan = new Scanner(System.in);
@@ -74,6 +73,9 @@ public class Main {
         clearFlightTable();
     }
 
+    /**
+     * for clear flight data table
+     */
     public static void clearFlightTable() {
         Session session = new HibernateConnection().getConnection();
         Transaction transaction = session.beginTransaction();
@@ -81,6 +83,9 @@ public class Main {
         transaction.commit();
     }
 
+    /**
+     * Enter flight details
+     */
     public static void enterFlightDetails() {
         enterDepartueLoacation();
         enterArrivalLocation();

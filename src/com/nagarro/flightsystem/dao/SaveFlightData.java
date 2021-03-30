@@ -1,5 +1,5 @@
 /*
-* Class name: SearchAllFlight
+* Class name: SaveFlightData
 *
 * Version info: jdk 1.8
 *
@@ -7,13 +7,13 @@
 * 
 * Author info: Arpit Garg
 *
-* Creation date: 24/Mar/2021
+* Creation date: 26/Mar/2021
 *
 * Last updated By: Arpit Garg
 *
-* Last updated Date: 24/Mar/2021
+* Last updated Date: 30/Mar/2021
 *
-* Description: Used for search list of flights
+* Description: Used for save flights
 */
 package com.nagarro.flightsystem.dao;
 

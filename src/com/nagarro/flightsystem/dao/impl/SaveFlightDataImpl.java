@@ -1,5 +1,5 @@
 /*
-* Class name: FindFlightList
+* Class name: SaveFlightDataImpl
 *
 * Version info: jdk 1.8
 *
@@ -7,13 +7,13 @@
 * 
 * Author info: Arpit Garg
 *
-* Creation date: 23/Mar/2021
+* Creation date: 27/Mar/2021
 *
 * Last updated By: Arpit Garg
 *
-* Last updated Date: 24/Mar/2021
+* Last updated Date: 30/Mar/2021
 *
-* Description: Find the all flights
+* Description: save all the flights in database
 */
 package com.nagarro.flightsystem.dao.impl;
 
@@ -35,16 +35,14 @@ import com.opencsv.exceptions.CsvValidationException;
 @SuppressWarnings("deprecation")
 public class SaveFlightDataImpl implements SaveFlightData {
     private static final String C_USERS_ARPITGARG02_ECLIPSE_WORKSPACE_FLIGHT_SYSTEM_BIN_RESOURCES = "C:/Users/arpitgarg02/eclipse-workspace/FlightSystem/bin/resources/";
-    private static final String B = "B";
     static ArrayList<String> flightInformation;
-    private String fileName;
     private String departureLocation;
     private String arrivalLocaton;
     private String flightDate;
     private String flightClass;
 
     /**
-     * Find all the flights
+     * save all the flights
      * 
      * @throws IOException
      * @throws CsvValidationException
@@ -63,11 +61,7 @@ public class SaveFlightDataImpl implements SaveFlightData {
                 flightInformation.setValidTill(flight[3]);
                 flightInformation.setFlightTime(flight[4]);
                 flightInformation.setFlightDuration(Float.parseFloat(flight[5]));
-//                if (flightClass.equals(B)) {
-//                    flightInformation.setFare(new Double(Float.parseFloat(flight[6]) * 1.4).floatValue());
-//                } else {
                 flightInformation.setFare(Float.parseFloat(flight[6]));
-//                }
                 flightInformation.setSeatAvailability(flight[7]);
                 flightInformation.setFlightClass(flight[8]);
                 Session session = new HibernateConnection().getConnection();
@@ -81,14 +75,14 @@ public class SaveFlightDataImpl implements SaveFlightData {
         }
     }
 
+    /**
+     * get flights from database
+     */
     public void getFlight(FlightData flightForSearch) {
         this.departureLocation = flightForSearch.getDepartureLoaction();
         this.arrivalLocaton = flightForSearch.getArrivalLocation();
         this.flightDate = flightForSearch.getValidTill();
         this.flightClass = flightForSearch.getFlightClass();
-//        Configuration configuration = new Configuration().configure().addAnnotatedClass(FlightData.class);
-//        SessionFactory factory = configuration.buildSessionFactory();
-//        Session session1 = factory.openSession();
         Session session = new HibernateConnection().getConnection();
         @SuppressWarnings("unchecked")
         Query<FlightData> query = session.createQuery("from FlightData");
@@ -105,5 +99,4 @@ public class SaveFlightDataImpl implements SaveFlightData {
             }
         }
     }
-
 }

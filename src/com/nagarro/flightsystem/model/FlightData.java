@@ -1,5 +1,5 @@
 /*
-* Class name: FlightInformation
+* Class name: FlightData
 *
 * Version info: jdk 1.8
 *
@@ -7,26 +7,22 @@
 * 
 * Author info: Arpit Garg
 *
-* Creation date: 23/Mar/2021
+* Creation date: 26/Mar/2021
 *
 * Last updated By: Arpit Garg
 *
-* Last updated Date: 24/Mar/2021
+* Last updated Date: 30/Mar/2021
 *
 * Description: Save Flight data in the form of nodes
 */
 package com.nagarro.flightsystem.model;
 
 import java.util.ArrayList;
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
 import javax.persistence.Transient;
 
 @Entity
@@ -34,10 +30,8 @@ public class FlightData {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    
     @Column(name = "Flight_Number")
     private String flightNumber;
-    
     @Column(name = "Departure_Loc")
     private String departureLocation;
     @Column(name = "Arrival_Loc")
@@ -59,10 +53,16 @@ public class FlightData {
     @Transient
     private static ArrayList<FlightData> flightList = new ArrayList<>();
 
+    /**
+     * @return
+     */
     public String getFlieForRead() {
         return flieForRead;
     }
 
+    /**
+     * @param flieForRead
+     */
     public void setFlieForRead(String flieForRead) {
         this.flieForRead = flieForRead;
     }
@@ -208,6 +208,6 @@ public class FlightData {
     }
 
     public void clearFlightList() {
-        this.flightList.clear();
+        FlightData.flightList.clear();
     }
 }

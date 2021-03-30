@@ -7,28 +7,22 @@
 * 
 * Author info: Arpit Garg
 *
-* Creation date: 23/Mar/2021
+* Creation date: 26/Mar/2021
 *
 * Last updated By: Arpit Garg
 *
-* Last updated Date: 24/Mar/2021
+* Last updated Date: 30/Mar/2021
 *
 * Description: Used for the print list of flights
 */
 package com.nagarro.flightsystem.utils;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Scanner;
-
 import com.nagarro.flightsystem.dao.impl.SaveFlightDataImpl;
-import com.nagarro.flightsystem.main.Main;
 import com.nagarro.flightsystem.model.FlightData;
-import com.opencsv.exceptions.CsvValidationException;
 
 public class FlightTracker {
-    private static final String C_USERS_ARPITGARG02_ECLIPSE_WORKSPACE_AIR_FLIGHT_SYSTEM_BIN_RESOURCES = "C:/Users/arpitgarg02/eclipse-workspace/AirFlightSystem/bin/resources/";
     private static final String NO_RECORD_FOUND = "No Record Found";
     private static FlightData flight = new FlightData();
     private ArrayList<String> filesName = new ArrayList<>();
